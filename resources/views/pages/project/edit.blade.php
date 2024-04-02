@@ -28,6 +28,7 @@
             </div>
 
 
+            {{-- IMG --}}
             <div class="mb-3">
                 {{-- immagine precedente --}}
                     @if ($project->cover_image)
@@ -43,6 +44,23 @@
                     @error('cover_image') is-invalid @enderror"
                 />
             </div>
+
+            {{-- TYPE --}}
+            <div class="mb-3">
+                <label for="type_id" class="form-label">Tipo</label>
+                <select
+                    class="form-select form-select-lg @error('type') is-invalid @enderror"
+                    name="type_id"
+                    id="type_id">
+                    <option selected>Seleziona</option>
+                    @foreach ($types as $tipo)
+                        <option value="{{$tipo->id}}">
+                            {{$tipo->nome}}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
 
 
 

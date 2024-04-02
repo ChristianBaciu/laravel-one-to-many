@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
@@ -25,7 +26,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('pages.project.create');
+        // dati della tabella Type
+        $types = Type::all();
+
+        return view('pages.project.create', compact('types'));
     }
 
     /**
@@ -42,6 +46,8 @@ class ProjectController extends Controller
             $path = Storage::disk('public')->put('project_image', $request->cover_image);
             $val_data['cover_image'] = $path;
         }
+
+        //dd($val_data);
 
         $new_project = Project::create($val_data);
         return redirect()->route('dashboard.projects.index');
@@ -60,7 +66,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('pages.project.edit', compact('project'));
+        $types = Type::all();
+        return view('pages.project.edit', compact('project', 'types'));
     }
 
     /**

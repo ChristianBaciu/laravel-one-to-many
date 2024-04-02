@@ -11,15 +11,15 @@ class Project extends Model
     use HasFactory;
 
     public $fillable = [
-        // aggiunto 'cover_image'
-        'titolo', 'contenuto', 'cover_image'
+        'titolo', 'contenuto',
+        // aggiunto 'cover_image' di COVERIMAGE
+        'cover_image',
+        // aggiunto 'nome' di TYPE
+        'type_id'
     ];
 
     // relazione one to many
     public function type(): BelongsTo{
-        return $this->BelongsTo( Type::class );
+        return $this->belongsTo( Type::class );
     }
-
-
-
 }

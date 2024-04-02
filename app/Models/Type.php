@@ -11,11 +11,11 @@ class Type extends Model
     use HasFactory;
 
     public $fillable = [
-        'name'
+        'nome'
     ];
 
     // relazione one to many
     public function projects(): HasMany{
-        return $this->hasMany( project::class );
+        return $this->hasMany( Project::class );
     }
 }

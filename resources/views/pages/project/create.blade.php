@@ -32,6 +32,8 @@
                 @enderror
             </div>
 
+
+            {{-- IMG --}}
             <div class="mb-3">
                 <label for="cover_image" class="form-label">Immagine</label>
                 <input
@@ -41,6 +43,8 @@
                     class="form-control"
                 />
             </div>
+
+
 
             <div class="mb-3">
                 <label for="contenuto" class="form-label">Contenuto</label>
@@ -59,6 +63,26 @@
                     </div>
                 @enderror
             </div>
+
+
+            {{-- TYPE --}}
+            <div class="mb-3">
+                <label for="type_id" class="form-label">Tipo</label>
+                <select
+                    class="form-select form-select-lg @error('type') is-invalid @enderror"
+                    name="type_id"
+                    id="type_id">
+                    <option selected>Seleziona</option>
+                    @foreach ($types as $tipo)
+                        <option value="{{$tipo->id}}">
+                            {{-- {{$tipo->id == old('type_id', $project->type ? $project->type->id : '') ? 'selected' : '' }} --}}
+                            {{$tipo->nome}}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+
 
             {{-- aggiungere sempre 'type submit' --}}
             <button type="submit" class="btn btn-success">Conferma creazione</button>
