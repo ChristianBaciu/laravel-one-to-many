@@ -24,9 +24,7 @@
                     placeholder="..."
                     value="{{ old('titolo', $project->titolo) }}"
                 />
-                {{-- for, name, id uguali --}}
             </div>
-
 
             {{-- IMG --}}
             <div class="mb-3">
@@ -45,8 +43,6 @@
                 />
             </div>
 
-
-
             {{-- TYPE --}}
             <div class="mb-3">
                 <label for="type_id" class="form-label">Tipo</label>
@@ -55,16 +51,15 @@
                     name="type_id"
                     id="type_id">
                     <option selected>Seleziona</option>
+
                         @foreach ($types as $tipo)
                         <option value="{{$tipo->id}}" {{ $tipo->id == old('type_id', $project->type_id) ? 'selected' : '' }}>
                             {{$tipo->nome}}
                         </option>
                         @endforeach
+
                 </select>
             </div>
-
-
-
 
             <div class="mb-3">
                 <label for="contenuto" class="form-label">Contenuto</label>
@@ -76,7 +71,6 @@
                     placeholder="..."
                     value="{{ old('contenuto', $project->contenuto) }}"
                 />
-                {{-- for, name, id uguali --}}
             </div>
 
             {{-- aggiungere sempre 'type submit' --}}

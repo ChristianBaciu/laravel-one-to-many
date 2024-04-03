@@ -28,15 +28,14 @@
                     @foreach ($projects as $item)
                         <tr>
                             <td>{{$item->id}}</td>
-
                             <td>
                                 <a href="{{route('dashboard.projects.show', $item->id)}}">
                                     {{$item->titolo}}
                                 </a>
                             </td>
-
                             <td>{{$item->contenuto}}</td>
                             <td>{{$item->cover_image}}</td>
+
                             <td>
                                 <div class="d-flex gap-2">
                                     {{-- <button class="btn btn-warning">Modifica</button> --}}
@@ -44,7 +43,6 @@
                                         class="btn btn-warning">
                                         Modifica
                                     </a>
-
                                     {{-- <button class="btn btn-danger">Elimina</button> --}}
                                     <form method="POST" action="{{route('dashboard.projects.destroy', $item->id)}}">
                                         @csrf
@@ -53,6 +51,7 @@
                                     </form>
                                 </div>
                             </td>
+
                         </tr>
                     @endforeach
                 </tbody>

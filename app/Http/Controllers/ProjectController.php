@@ -15,6 +15,7 @@ class ProjectController extends Controller
      */
     public function index(){
         $projects = Project::all();
+
         // la funzione 'compact' crea un array in cui la chiave è 'projects'
         return view('pages.project.index', compact('projects'));
 
