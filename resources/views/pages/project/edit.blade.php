@@ -1,4 +1,4 @@
-@extends('layouts.app')
+ @extends('layouts.app')
 
 {{-- yield di app.blade, sotto #id stamperà questo codice --}}
 @section('content')
@@ -45,6 +45,8 @@
                 />
             </div>
 
+
+
             {{-- TYPE --}}
             <div class="mb-3">
                 <label for="type_id" class="form-label">Tipo</label>
@@ -53,11 +55,11 @@
                     name="type_id"
                     id="type_id">
                     <option selected>Seleziona</option>
-                    @foreach ($types as $tipo)
-                        <option value="{{$tipo->id}}">
+                        @foreach ($types as $tipo)
+                        <option value="{{$tipo->id}}" {{ $tipo->id == old('type_id', $project->type_id) ? 'selected' : '' }}>
                             {{$tipo->nome}}
                         </option>
-                    @endforeach
+                        @endforeach
                 </select>
             </div>
 

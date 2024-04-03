@@ -73,12 +73,13 @@
                     name="type_id"
                     id="type_id">
                     <option selected>Seleziona</option>
-                    @foreach ($types as $tipo)
+
+                        @foreach ($types as $tipo)
                         <option value="{{$tipo->id}}">
-                            {{-- {{$tipo->id == old('type_id', $project->type ? $project->type->id : '') ? 'selected' : '' }} --}}
                             {{$tipo->nome}}
                         </option>
-                    @endforeach
+                        @endforeach
+
                 </select>
             </div>
 
