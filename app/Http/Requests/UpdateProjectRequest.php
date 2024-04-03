@@ -23,7 +23,7 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             // 'required' serve a garantire che un campo sia obbligatorio e non possa essere lasciato vuoto
-            'titolo' => ['required', 'unique:projects', 'max:100'],
+            'titolo' => ['required', 'max:100'],
             'contenuto' => ['required', 'max:200'],
             'cover_image' => ['nullable', 'image', 'max:20000'],
             'type_id' => ['nullable', 'exists:types,id']
